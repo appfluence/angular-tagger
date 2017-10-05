@@ -172,7 +172,6 @@ angular.module("tagger").directive "tagger", ["$compile", "$timeout", ($compile,
             -1
 
         $scope.placeholder = if $scope.tags.length > 0 || $scope.query.length > 0 then null else $scope.config.placeholder
-        console.log($scope.placeholder)
 
     _updateFocus = () ->
       # focusing on hidden element does not work
