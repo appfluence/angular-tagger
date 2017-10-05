@@ -142,7 +142,8 @@
                 }
               }
               $scope.selected = $scope.config.disableNew ? 0 : $scope.matching.length > 0 ? 0 : -1;
-              return $scope.placeholder = $scope.tags.length > 0 ? null : $scope.config.placeholder;
+              $scope.placeholder = $scope.tags.length > 0 || $scope.query.length > 0 ? null : $scope.config.placeholder;
+              return console.log($scope.placeholder);
             });
           };
           _updateFocus = function() {
@@ -255,7 +256,6 @@
             }
             item = $scope.config.disableNew ? $scope.selected > -1 ? $scope.matching[$scope.selected] : null : $scope.selected === -1 && $scope.query ? $scope.config.createFun($scope.query) : $scope.selected > -1 ? $scope.matching[$scope.selected] : void 0;
             if ($scope.tags.indexOf(item) === -1) {
-              console.log("adding ", item);
               $scope.tags.splice($scope.pos, 0, item);
               $scope.query = "";
               _updateMatching();
@@ -302,8 +302,8 @@
             if (pos < $scope.pos) {
               $scope.pos--;
             }
+            _updateMatching();
             if ($scope.expanded) {
-              _updateMatching();
               _updateFocus();
             }
             if ($scope.config.single) {
