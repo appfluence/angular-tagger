@@ -142,8 +142,7 @@
                 }
               }
               $scope.selected = $scope.config.disableNew ? 0 : $scope.matching.length > 0 ? 0 : -1;
-              $scope.placeholder = $scope.tags.length > 0 || $scope.query.length > 0 ? null : $scope.config.placeholder;
-              return console.log($scope.placeholder);
+              return $scope.placeholder = $scope.tags.length > 0 || $scope.query.length > 0 ? null : $scope.config.placeholder;
             });
           };
           _updateFocus = function() {
